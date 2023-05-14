@@ -37,42 +37,53 @@ class _HomeState extends State<Home> {
         bucket: bucket,
         child: currentScreen,
         ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: PALETTE.white,
-        unselectedItemColor: PALETTE.white,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        backgroundColor: PALETTE.primaryPurple,
-        onTap: (index){
-          setState(() {
-            _currentIndex = index;
-            currentScreen = screens[index];
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
-            label: "Dashboard",
-            tooltip: "Dashboard",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
-            label: "Calendar",
-            tooltip: "Calendario"
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.folder),
-            label: "Proyects",
-            tooltip: "Proyectos"
-          ),
-          BottomNavigationBarItem(
-            label: "Stats",
-            icon: Icon(Icons.bar_chart),
-            tooltip: "Estadisticas"
-          ),
-        ],
+      bottomNavigationBar: Container(
+        height: 60,
+        decoration: const BoxDecoration(
+          color: PALETTE.primaryPurple,
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(15),
+            topLeft: Radius.circular(15)  
+          )
+        ),
+        child: BottomNavigationBar(
+          iconSize: 30,
+          selectedItemColor: PALETTE.white,
+          unselectedItemColor: PALETTE.white,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _currentIndex,
+          backgroundColor: Colors.transparent,
+          onTap: (index){
+            setState(() {
+              _currentIndex = index;
+              currentScreen = screens[index];
+            });
+          },
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.dashboard),
+              label: "Dashboard",
+              tooltip: "Dashboard",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today),
+              label: "Calendar",
+              tooltip: "Calendario"
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.folder),
+              label: "Proyects",
+              tooltip: "Proyectos"
+            ),
+            BottomNavigationBarItem(
+              label: "Stats",
+              icon: Icon(Icons.bar_chart),
+              tooltip: "Estadisticas"
+            ),
+          ],
+        ),
       ),
       
     );
