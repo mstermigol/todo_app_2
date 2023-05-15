@@ -24,21 +24,20 @@ class _DashboardState extends State<Dashboard> {
           slivers: [
             SliverToBoxAdapter(
                 child: TopSliver(referencia: referencia)),
-            const SliverAppBar(
+            
+            SliverPersistentHeader(
               pinned: true,
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-              flexibleSpace: FlexibleSpaceBar(
-                title: Text("Projects", style: TextStyle(color: Colors.black),),
-              )
-            ),
+              floating: false,
+              delegate: MySliverHorizontalDates()
+              ),
+
             SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
                 
                 return Container(
                   height: 150,
                   color: Colors.red,
-                  child: FittedBox(
+                  child: const FittedBox(
                     child: Text("data"),
                   ),
                 );
@@ -52,6 +51,38 @@ class _DashboardState extends State<Dashboard> {
         ),
       ),
     );
+  }
+}
+
+class MySliverHorizontalDates extends SliverPersistentHeaderDelegate{
+  @override
+  double get maxExtent => 100;
+
+  @override
+  double get minExtent => 100;
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Container(
+      color: Colors.transparent,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return Container(
+            width: 100,
+            color: PALETTE.white,
+            child: Text("data"),
+          );
+        },
+      ),
+    );
+  }
+
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
   }
 }
 
