@@ -14,6 +14,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      bottom: false,
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight((referencia * 2) + 10),
@@ -30,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
               floating: false,
               delegate: MySliverHorizontalDates()
               ),
-
+        
             SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
                 
@@ -42,7 +43,7 @@ class _DashboardState extends State<Dashboard> {
                   ),
                 );
                 
-
+        
               } ,
               childCount: 50000000,
               )
@@ -64,7 +65,7 @@ class MySliverHorizontalDates extends SliverPersistentHeaderDelegate{
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      color: Colors.transparent,
+      color: PALETTE.white,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 10,
