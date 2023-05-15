@@ -19,10 +19,14 @@ class _DashboardState extends State<Dashboard> {
           preferredSize: Size.fromHeight((referencia*2)+10),
           child: AppBarHome(referencia: referencia),
         ),
-        body: const CustomScrollView(
-          physics: ClampingScrollPhysics(),
+        body: CustomScrollView(
+          physics: const ClampingScrollPhysics(),
           slivers: [
-            
+            SliverToBoxAdapter(
+              child: Container(
+                
+              )
+            ),
           ],
         ),
       ),
