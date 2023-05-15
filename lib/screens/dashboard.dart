@@ -24,7 +24,61 @@ class _DashboardState extends State<Dashboard> {
           slivers: [
             SliverToBoxAdapter(
               child: Container(
-                
+                padding: EdgeInsets.symmetric(horizontal: referencia/2),
+                height: referencia*8,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: referencia,
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      height: referencia + 10,
+                      child: Text(
+                        "Projects",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: referencia,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: referencia/2),
+                    Container(
+                      height: referencia*4 + 10,
+                      alignment: Alignment.center,
+                      child: SizedBox(
+                        height: referencia*4,
+                        child: ListView.builder(
+                          itemCount: 5,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              padding: const EdgeInsets.all(5.0),
+                              margin: EdgeInsets.only(right: referencia/2),
+                              width: referencia*4,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: PALETTE.lightSkin,
+                              ),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  onTap: () {},
+                                  borderRadius: BorderRadius.circular(15),
+                                  splashColor: PALETTE.white.withOpacity(0.4),
+                                  child: Column(
+                                    //Falta codigo de proyecto
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          )
+                        ),
+                    )
+                  ],
+                ),
               )
             ),
           ],
@@ -45,7 +99,7 @@ class AppBarHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding: EdgeInsets.symmetric(horizontal: referencia/2),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
